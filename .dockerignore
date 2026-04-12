@@ -1,0 +1,9 @@
+.git
+.dockerignore
+Dockerfile
+smart_venue_architecture.md
+task.md
+deployment_plan.md
+walkthrough.md
+node_modules
+*.log
