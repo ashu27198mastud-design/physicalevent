@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RVIRE | Smart Venue AI Command Center</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Include Material Icons for UI polish -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+<body>
+  
+  <!-- Animated Background Depth Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <span class="material-icons-round" style="color: var(--accent-blue); font-size: 2rem;">radar</span>
+      <h1>RVIRE <span style="font-weight: 300; font-size: 1.1rem; color: var(--text-muted);">| Real-Time Venue Intelligence</span></h1>
+    </div>
+    <div class="status-badge">
+      <div class="pulse"></div>
+      System Live & Predictive Mode Active
+    </div>
+  </header>
+
+  <main class="dashboard-grid">
+    
+    <!-- Left Column: Primary Radar/Heatmap -->
+    <div class="main-panel">
+      
+      <div class="glass-card mb-4">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="material-icons-round">language</span> Digital Twin Congestion Heatmap
+          </div>
+          <div class="stat-pill" style="background: rgba(66, 133, 244, 0.1); border-color: var(--accent-blue);">
+            AI Predicted: T+10 Mins
+          </div>
+        </div>
+        
+        <div class="main-view">
+          <div class="stadium-map">
+            <!-- Simulated AI Heatmap Zones -->
+            <div class="heatmap-point point-critical" id="zone-south"></div>
+            <div class="heatmap-point point-warning" id="zone-east"></div>
+            <div class="heatmap-point point-safe" id="zone-north"></div>
+          </div>
+          
+          <div class="overlay-stats">
+            <div class="stat-pill">Total Attendees: <span id="total-count">52,401</span></div>
+            <div class="stat-pill">Avg Wait: <span id="avg-wait">4m 12s</span></div>
+          </div>
+        </div>
+        
+        <div class="ai-reasoning">
+          <span class="material-icons-round" style="font-size: 1rem; vertical-align: middle;">auto_awesome</span>
+          <strong>Gemini Insight:</strong> Crowd density in South Concourse is increasing faster than expected. Recommendation: Deploy extra staff and reroute attendees to Gate D.
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- Right Column: AI Rules & Alerts -->
+    <div class="side-panel">
+      
+      <!-- Metrics Card -->
+      <div class="glass-card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="material-icons-round">analytics</span> Venue Vitality
+          </div>
+        </div>
+        <div>
+          <div class="metric-label">Flow Efficiency</div>
+          <div class="metric-value">94.2%</div>
+        </div>
+        <div style="margin-top: 1rem;">
+          <div class="metric-label">AI Interventions Today</div>
+          <div class="metric-value" style="font-size: 1.8rem; background: linear-gradient(45deg, var(--accent-pink), var(--accent-purple)); -webkit-background-clip: text;">142</div>
+        </div>
+      </div>
+
+      <!-- Actionable Alerts List -->
+      <div class="glass-card" style="flex-grow: 1;">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="material-icons-round">rule</span> Rule Engine Triggers
+          </div>
+        </div>
+        
+        <div class="alert-list">
+          
+          <!-- Critical Priority Alert -->
+          <div class="alert-item critical">
+            <div class="alert-header">
+              <span><span class="rule-tag">CRITICAL</span> South Gate Congestion</span>
+              <span>Just now</span>
+            </div>
+            <div class="alert-body">
+              Wait time > 10m. RVIRE has predicted further bottlenecks.
+              <br>
+              <button class="action-btn" onclick="executeAction(this, 'Resolving South Gate...')">Auto-Reroute via App</button>
+            </div>
+          </div>
+
+          <!-- Medium Priority Alert -->
+          <div class="alert-item warning">
+            <div class="alert-header">
+              <span><span class="rule-tag">HIGH</span> Food Stall 7</span>
+              <span>2 mins ago</span>
+            </div>
+            <div class="alert-body">
+              Queue length exceeding threshold. Activating digital signage redirect to Stall 9.
+              <br>
+              <button class="action-btn" onclick="executeAction(this, 'Redirecting Flow...')">Override & Approve</button>
+            </div>
+          </div>
+          
+          <!-- Low Priority Alert -->
+          <div class="alert-item">
+            <div class="alert-header">
+              <span><span class="rule-tag">LOW</span> Exit Sequence</span>
+              <span>15 mins left</span>
+            </div>
+            <div class="alert-body">
+              Preparing staggered exit flow for Zone A & B to prevent mass crush.
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+    </div>
+  </main>
+  
+  <!-- Add dynamic interactions script -->
+  <script src="script.js"></script>
+</body>
+</html>
