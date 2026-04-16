@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AntiGravity Arena</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <span class="material-icons-outlined brand-icon">sports_esports</span>
+                <h1>AntiGravity<br><span>Arena</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-view="venue-map">
+                    <span class="material-icons-outlined">map</span> Live Venue Map
+                </li>
+                <li data-view="crowd-flow">
+                    <span class="material-icons-outlined">waves</span> Crowd Flow
+                </li>
+                <li data-view="wait-times">
+                    <span class="material-icons-outlined">timer</span> Wait Times
+                </li>
+                <li data-view="ops-panel">
+                    <span class="material-icons-outlined">admin_panel_settings</span> Ops Panel
+                </li>
+                <li data-view="attendee-exp">
+                    <span class="material-icons-outlined">flight_takeoff</span> Attendee Exp
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            
+            <!-- View 1: Live Venue Map -->
+            <section id="venue-map" class="view active-view">
+                <header class="view-header">
+                    <h2>Live Venue Map</h2>
+                    <p>Real-time top-down 3D stadium overview</p>
+                </header>
+                <div class="map-container">
+                    <div class="pixar-stadium-bg"></div>
+                    <!-- Antigravity Pods to be dynamically injected here -->
+                    <div id="pods-container"></div>
+                    
+                    <!-- Side panel for zone details -->
+                    <aside class="glass-panel zone-details hidden" id="zone-details-panel">
+                        <h3 id="zd-name">Zone Name</h3>
+                        <div class="stat-row">
+                            <span>Status:</span> <span id="zd-status" class="badge">Normal</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>Capacity:</span> <span id="zd-cap">75%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span>Wait Time:</span> <span id="zd-wait">5 min</span>
+                        </div>
+                        <button class="btn primary-btn">Request Alternate Route</button>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- View 2: Antigravity Crowd Flow -->
+            <section id="crowd-flow" class="view hidden-view">
+                <header class="view-header">
+                    <h2>Antigravity Crowd Flow</h2>
+                    <p>Dynamic routing and congestion management</p>
+                    <button class="btn primary-btn pulse-glow" id="reroute-all-btn">
+                        <span class="material-icons-outlined">alt_route</span> Reroute All
+                    </button>
+                </header>
+                <div class="flow-container glass-panel">
+                    <div class="flow-network" id="flow-network">
+                        <!-- Simulated SVG Paths -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- View 3: Wait Time Dashboard -->
+            <section id="wait-times" class="view hidden-view">
+                <header class="view-header">
+                    <h2>Wait Time Dashboard</h2>
+                    <p>Real-time levitating metrics</p>
+                </header>
+                <div class="dashboard-grid" id="wait-times-grid">
+                    <!-- Wait time cards will be dynamically injected here -->
+                </div>
+            </section>
+
+            <!-- View 4: Ops Coordination Panel -->
+            <section id="ops-panel" class="view hidden-view">
+                <header class="view-header">
+                    <h2>Ops Coordination</h2>
+                    <p>Live alerts and team dispatch</p>
+                </header>
+                <div class="ops-grid" id="ops-alerts-grid">
+                    <!-- Alert cards will be injected here -->
+                </div>
+            </section>
+
+            <!-- View 5: Attendee Experience -->
+            <section id="attendee-exp" class="view hidden-view">
+                <header class="view-header">
+                    <h2>Attendee Experience</h2>
+                    <p>In-seat 3D Pixar Drone Delivery</p>
+                </header>
+                <div class="attendee-layout">
+                    <div class="glass-panel order-form">
+                        <h3>Order Console</h3>
+                        <div class="form-group">
+                            <label>Item Selection:</label>
+                            <select id="drone-item">
+                                <option>Neon Slush - $8</option>
+                                <option>Gravity Burger - $15</option>
+                                <option>Plasma Sword Toy - $25</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Seat Number:</label>
+                            <input type="text" id="seat-number" placeholder="e.g. SEC-A Row-4 Seat-12">
+                        </div>
+                        <button class="btn primary-btn" id="place-order-btn">Deploy Drone</button>
+                        <div id="order-status" class="order-status hidden">
+                            Deploying... ETA: <span id="drone-eta">3m</span>
+                        </div>
+                    </div>
+                    
+                    <div class="drone-map-container glass-panel">
+                        <div class="drone-map-bg"></div>
+                        <div class="pixar-drone" id="pixar-drone">
+                            <span class="material-icons-outlined">precision_manufacturing</span>
+                        </div>
+                        <div class="target-seat" id="target-seat" style="display:none;">
+                            <span class="material-icons-outlined">where_to_vote</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
